@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     color: #333;
-    text-align: center;
+    text-align: left;
     margin: 0;
     padding: 0;
 }
@@ -17,7 +17,7 @@ body {
     margin-top: 50px;
 }
 
-.logo {
+.logo { 
     width: 300px;
     margin-bottom: 60px;
 }
@@ -42,7 +42,7 @@ button:hover {
     background-color: #0056b3;
 }
 
-ul {
+ul { 
     list-style-type: none;
     padding-left: 0;
 }

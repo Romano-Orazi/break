@@ -9,7 +9,7 @@
     <div class="container">
         <img src="logo.png" alt="Logo Formatemp" class="logo">
 
-        <h1>PAUSA</h1>
+        <h1>PAUSA<span id="current-date"></span></h1>
         <p><strong>Corso:</strong><em>Programmazione Java</em></p>
         <p><strong>Codice Progetto:</strong><em>109PROTD2534224</em></p>
 
@@ -41,7 +41,11 @@
     <!-- Audio Files -->
     <audio id="startSound" src="audio/start.mp3"></audio>
     <audio id="endSound" src="audio/end.mp3"></audio>
-
+    <script>
+      const today = new Date();
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      document.getElementById("current-date").textContent = " - " + today.toLocaleDateString('it-IT', options);
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

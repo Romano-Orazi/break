@@ -43,7 +43,7 @@ button:hover {
 }
 
 ul { 
-    list-style-type: inherit;
+    list-style-type: decimal;
     padding-left: 0;
 }
 

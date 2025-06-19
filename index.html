@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Formatemp - Pausa Produttiva</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <img src="logo.png" alt="Logo Formatemp" class="logo">
+
+        <h1>Formatemp</h1>
+        <p><strong>Corso:</strong> [Inserisci Nome Corso]</p>
+        <p><strong>Codice Progetto:</strong> [Codice]</p>
+
+        <div id="time-info">
+            <p>Ora attuale: <span id="current-time">--:--:--</span></p>
+            <p>Inizio pausa: <span id="start-time">--:--:--</span></p>
+            <p>Fine pausa: <span id="end-time">--:--:--</span></p>
+        </div>
+
+        <button onclick="startBreak()">Inizia Pausa di 15 min</button>
+
+        <h2>Timer Countdown</h2>
+        <div id="countdown">00:00</div>
+
+        <h3>Consigli per la tua pausa:</h3>
+        <ul>
+            <li>Passeggia un po' all'aria aperta</li>
+            <li>Fai dello stretching leggero</li>
+            <li>Bevi un bicchiere d'acqua</li>
+            <li>Distogli lo sguardo dallo schermo</li>
+            <li>Mangia uno spuntino sano</li>
+            <li>Fai tre respiri profondi</li>
+        </ul>
+
+        <h3>Pause Effettuate Oggi</h3>
+        <ul id="breaks-list"></ul>
+    </div>
+
+    <!-- Audio Files -->
+    <audio id="startSound" src="audio/start.mp3"></audio>
+    <audio id="endSound" src="audio/end.mp3"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -65,6 +65,7 @@ function updateBreakList() {
 
 function playAudio(type) {
     const sound = document.getElementById(type + "Sound");
+    sound.volume = 0.2; // Volume ridotto
     sound.currentTime = 0;
     sound.play();
 }

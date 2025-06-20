@@ -11,7 +11,12 @@
 
         <h1>PAUSA<span id="current-date"></span></h1>
         <p><strong>Corso:</strong><em>Programmazione Java</em></p>
-        <p><strong>Codice Progetto:</strong><em>053PROTD2528661</em></p>
+        <div id="project-code-container">
+          <label for="project-code"><strong>Codice Progetto:</strong></label>
+          <input type="text" id="project-code" placeholder="Inserisci codice progetto" />
+          <button onclick="saveProjectCode()">Salva</button>
+          <p id="display-project-code">Nessun codice inserito</p>
+        </div>
 
         <div id="time-info">
             <p><strong>Ora attuale: <span id="current-time">--:--:--</span></strong></p>
@@ -47,5 +52,27 @@
       document.getElementById("current-date").textContent = " - " + today1.toLocaleDateString('it-IT');
     </script>
     <script src="script.js"></script>
+
+    <script>
+  // Carica il codice progetto dal localStorage al caricamento della pagina
+  window.onload = function() {
+    const savedCode = localStorage.getItem("projectCode");
+    if (savedCode) {
+      document.getElementById("display-project-code").textContent = savedCode;
+      document.getElementById("project-code").value = savedCode;
+    }
+  };
+
+  // Funzione per salvare il codice progetto
+  function saveProjectCode() {
+    const code = document.getElementById("project-code").value.trim();
+    if (code) {
+      localStorage.setItem("projectCode", code);
+      document.getElementById("display-project-code").textContent = code;
+    } else {
+      alert("Per favore, inserisci un codice progetto.");
+    }
+  }
+</script>
 </body>
 </html>

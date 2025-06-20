@@ -11,6 +11,7 @@ function updateCurrentTime() {
     document.getElementById("current-time").textContent = now.toLocaleTimeString();
 }
 setInterval(updateCurrentTime, 1000);
+
 window.onload = () => {
     updateCurrentTime();
     loadProjectCode(); // Carica il codice progetto
@@ -54,8 +55,16 @@ function startBreak() {
 
     startCountdown(duration);
 
-    // Registra la pausa
-    todayBreaks.push({ date: today, time: now.toLocaleTimeString() });
+    // Recupera il codice progetto
+    const projectCode = localStorage.getItem("projectCode") || "Nessun codice";
+
+    // Registra la pausa con il codice progetto
+    todayBreaks.push({ 
+        date: today, 
+        time: now.toLocaleTimeString(), 
+        code: projectCode 
+    });
+
     localStorage.setItem("todayBreaks", JSON.stringify(todayBreaks));
     updateBreakList();
 }
@@ -74,7 +83,7 @@ function updateBreakList() {
     list.innerHTML = "";
     todayBreaks.forEach(b => {
         const li = document.createElement("li");
-        li.textContent = `Pausa alle ${b.time}`;
+        li.textContent = `Pausa alle ${b.time} - Codice: ${b.code}`;
         list.appendChild(li);
     });
 }
@@ -93,7 +102,7 @@ function saveProjectCode() {
 function loadProjectCode() {
     const savedCode = localStorage.getItem("projectCode");
     if (savedCode) {
-        document.getElementById("display-project-code").textContent = savedCode;
         document.getElementById("project-code").value = savedCode;
+        document.getElementById("display-project-code").textContent = savedCode;
     }
 }
